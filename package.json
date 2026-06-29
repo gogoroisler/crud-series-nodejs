@@ -1,19 +1,25 @@
 {
-  "name": "crud-series-simpsons",
+  "name": "crud-series-nodejs",
   "version": "1.0.0",
   "description": "Aplicación web CRUD para gestión de episodios de Los Simpsons. Backend con Node.js y Express, frontend en HTML/CSS/JS vanilla, persistencia en CSV.",
+  "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "author": "Santiago González Roisler",
   "license": "MIT",
   "keywords": ["crud", "nodejs", "express", "csv", "simpsons"],
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "cors": "^2.8.5",
     "csv-parser": "^3.0.0",
+    "dotenv": "^17.4.2",
     "express": "^4.21.1",
-    "json2csv": "^6.0.0-alpha.2"
+    "morgan": "^1.11.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.9"
   }
 }

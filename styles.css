@@ -281,10 +281,22 @@ button:disabled {
   color: #777;
 }
 
+.record-credits {
+  font-size: 0.82rem;
+  color: #666;
+}
+
+.record-ratings {
+  font-size: 0.82rem;
+  color: #3498db;
+  font-weight: bold;
+}
+
 .record-desc {
-  font-size: 0.88rem;
-  color: #555;
+  font-size: 0.85rem;
+  color: #666;
   line-height: 1.4;
+  font-style: italic;
 }
 
 .record-actions {

@@ -94,12 +94,21 @@ const displayRecords = (data) => {
   data.forEach((record) => {
     const li = document.createElement("li");
 
+    const imdb = record.imdb_rating ? `IMDB: ${record.imdb_rating}` : "IMDB: —";
+    const tmdb = record.tmdb_rating ? `TMDB: ${record.tmdb_rating}` : "TMDB: —";
+    const viewers = record.us_viewers_in_millions ? `${record.us_viewers_in_millions}M espect.` : "";
+    const desc = record.description && record.description.length > 120
+      ? record.description.slice(0, 120) + "…"
+      : record.description || "";
+
     const info = document.createElement("div");
     info.className = "record-info";
     info.innerHTML = `
       <strong>${record.title}</strong>
-      <span class="record-meta">Temp. ${record.season} · Ep. ${record.number_in_season} · Dir.: ${record.directed_by}</span>
-      <span class="record-desc">${record.description}</span>
+      <span class="record-meta">Temp. ${record.season} · Ep. ${record.number_in_season} · ${record.original_air_date}</span>
+      <span class="record-credits">Dir.: ${record.directed_by} · Guión: ${record.written_by}</span>
+      <span class="record-ratings">${imdb} &nbsp;|&nbsp; ${tmdb}${viewers ? ` &nbsp;|&nbsp; ${viewers}` : ""}</span>
+      <span class="record-desc">${desc}</span>
     `;
     li.appendChild(info);
 
