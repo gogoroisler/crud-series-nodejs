@@ -326,6 +326,25 @@ button:disabled {
 
 .btn-delete:hover { background-color: #c0392b; }
 
+/* Footer */
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+  border-top: 1px solid #e0e0e0;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .form-grid, .search-grid { grid-template-columns: 1fr; }
