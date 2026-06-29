@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD de Series — Los Simpsons</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CRUD de Series — Los Simpsons</h1>
+    <p class="subtitle">Gestión de episodios con Node.js · Express · CSV</p>
+  </header>
+
+  <main>
+    <!-- Mensajes de sistema -->
+    <div id="message"></div>
+    <div id="loading" style="display:none;">Cargando datos...</div>
+
+    <!-- Formulario -->
+    <section class="card" id="formSection">
+      <h2 id="formTitle">Agregar Episodio</h2>
+      <form id="recordForm">
+        <div class="form-grid">
+          <input type="text" id="title" placeholder="Título del episodio" required>
+          <input type="date" id="original_air_date" required>
+          <input type="text" id="directed_by" placeholder="Director" required>
+          <input type="text" id="written_by" placeholder="Guionista" required>
+          <input type="number" id="season" placeholder="Temporada" min="1" required>
+          <input type="number" id="number_in_season" placeholder="Ep. en temporada" min="1" required>
+          <input type="number" id="number_in_series" placeholder="Ep. en serie" min="1" required>
+          <input type="number" id="us_viewers_in_millions" placeholder="Espectadores (millones)" step="0.1" min="0">
+          <input type="number" id="imdb_rating" placeholder="Rating IMDB (0-10)" step="0.1" min="0" max="10">
+          <input type="number" id="tmdb_rating" placeholder="Rating TMDB (0-10)" step="0.1" min="0" max="10">
+        </div>
+        <textarea id="description" placeholder="Descripción del episodio" rows="3" required></textarea>
+        <div class="form-actions">
+          <button type="submit" id="submitBtn">Agregar Episodio</button>
+          <button type="button" id="cancelBtn" style="display:none;">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Filtros de búsqueda -->
+    <section class="card" id="searchSection">
+      <h2>Buscar Episodios</h2>
+      <div class="search-grid">
+        <input type="text" id="filterTitle" placeholder="Buscar por título">
+        <input type="number" id="filterSeason" placeholder="Temporada" min="1">
+        <input type="number" id="filterImdb" placeholder="IMDB mínimo" step="0.1" min="0" max="10">
+        <input type="number" id="filterTmdb" placeholder="TMDB mínimo" step="0.1" min="0" max="10">
+        <select id="filterDirector">
+          <option value="">Todos los directores</option>
+        </select>
+      </div>
+      <div class="search-actions">
+        <button id="searchButton">Buscar</button>
+        <button id="showAllButton" class="btn-secondary">Mostrar Todos</button>
+      </div>
+    </section>
+
+    <!-- Estado / contador -->
+    <div id="showAllMessage" style="display:none;"></div>
+
+    <!-- Paginación superior -->
+    <div id="pagination"></div>
+
+    <!-- Lista de registros -->
+    <ul id="recordList"></ul>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
